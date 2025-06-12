@@ -12,7 +12,7 @@ generateBtn.addEventListener('click',(e)=>{
 
 sizes.addEventListener('change',(e)=>{
     size = e.target.value;
-    isEmptyInput();
+    // isEmptyInput();
 });
 
 downloadBtn.addEventListener('click', ()=>{
