@@ -32,12 +32,17 @@ function isEmptyInput(){
 }
 function generateQRCode(){
     qrContainer.innerHTML = "";
-    new QRCode(qrContainer, {
-        text:qrText.value,
-        height:size,
-        width:size,
-        colorLight:"#fff",
-        colorDark:"#000",
+
+    const wrapper = document.createElement('div');
+    wrapper.className = "qr-scroll-wrapper";
+    qrContainer.appendChild(wrapper);
+
+    new QRCode(wrapper, {
+        text: qrText.value,
+        height: size,
+        width: size,
+        colorLight: "#fff",
+        colorDark: "#000",
     });
 }
 

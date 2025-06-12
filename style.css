@@ -16,21 +16,23 @@
 }
 
 body {
-    width: 100%;
-    height: 100vh;
+    background-color: var(--bcg-color);
     display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: var(--bcg-color);
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 20px;
 }
 
 .box {
     background-color: var(--primary-color);
     padding: 32px;
-    width: 400px;
+    width: 100%;
+    max-width: 1000px;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     transition: all 0.3s ease-in-out;
+    overflow: visible; /* Let inner content scroll beyond */
 }
 
 .qr-header h1 {
@@ -66,6 +68,36 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 12px;
+    flex-wrap: wrap;
+}
+
+.qr-body {
+    padding: 20px 0;
+    overflow-x: auto;
+}
+
+.qr-scroll-wrapper {
+    width: fit-content;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background: #fff;
+}
+
+.qr-scroll-wrapper img,
+.qr-scroll-wrapper canvas {
+    display: block;
+    border-radius: var(--border-radius);
+}
+
+/* Optional scrollbar styling */
+.qr-body::-webkit-scrollbar {
+    height: 8px;
+}
+.qr-body::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
 }
 
 .qr-footer {
@@ -91,24 +123,9 @@ body {
     background-color: #2563eb;
 }
 
-.qr-body {
-    display: grid;
-    place-items: center;
-    padding: 20px 0;
-}
-
-.qr-body img {
-    max-width: 100%;
-    max-height: 100%;
-    padding: 16px;
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    background-color: #fff;
-}
-
 @media screen and (max-width: 520px) {
     .box {
-        width: 90%;
+        width: 100%;
         padding: 24px;
     }
 
